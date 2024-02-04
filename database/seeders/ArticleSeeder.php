@@ -28,7 +28,8 @@ class ArticleSeeder extends Seeder
             [
                 'title' => 'Third Article',
                 'description' => 'This is the third articles description',
-                'conclusion' => 'This is the conclusion of the third article'
+                'conclusion' => 'This is the conclusion of the third article',
+                'type_id' => 1
             ],
 
         ];
