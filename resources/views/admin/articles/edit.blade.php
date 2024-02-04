@@ -17,26 +17,26 @@
         </div>
         <div class="row">
 
-            <form action="{{ route('admin.articles.update', $editData->id) }}" method="POST">
+            <form action="{{ route('admin.articles.update', $article->id) }}" method="POST">
 
                 @csrf
                 @method('PUT')
                 <div class="mb-3">
                     <label for="title" class="form-label">Title</label>
                     <input type="text" class="form-control @error('title') is-invalid @enderror" id="title"
-                        placeholder="Insert Title" name= "title" value="{{ old('title') ?? $editData->title }}">
+                        placeholder="Insert Title" name= "title" value="{{ old('title') ?? $article->title }}">
                 </div>
                 <div class="mb-3">
                     <label for="description" class="form-label">Description</label>
                     <input type="text" class="form-control @error('description') is-invalid @enderror" id="description"
                         placeholder="Insert Descriptoin" name= "description"
-                        value="{{ old('description') ?? $editData->description }}">
+                        value="{{ old('description') ?? $article->description }}">
                 </div>
         </div>
         <div class="mb-3">
             <label for="conclusion" class="form-label">Conslusion</label>
             <input type="text" class="form-control @error('conclusion') is-invalid @enderror" id="conclusion"
-                placeholder="Insert Conslution" name= "conclusion" value="{{ old('conclusion') ?? $editData->conclusion }}">
+                placeholder="Insert Conslution" name= "conclusion" value="{{ old('conclusion') ?? $article->conclusion }}">
         </div>
     </div>
     <button type="submit" class="btn btn-primary">Modify</button>

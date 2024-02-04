@@ -49,7 +49,7 @@ class ArticleController extends Controller
      */
     public function show(Article $article)
     {
-        //
+        return view("admin.articles.show", compact('article'));
     }
 
     /**
@@ -58,7 +58,7 @@ class ArticleController extends Controller
     public function edit(Article $article)
     {
 
-        return view('admin.articles.edit', ['editData' => $article]);
+        return view("admin.articles.edit", compact("article"));
     }
 
 
@@ -67,11 +67,13 @@ class ArticleController extends Controller
      */
     public function update(UpdateArticleRequest $request, Article $article)
     {
-        $newarticleData = $request->validated();
+        $validated = $request->validated();
 
-        $article->update($newarticleData);
 
-        return redirect()->route('admin.articles.show', $article->id);
+        $article->fill($validated);
+        $article->update();
+
+        return redirect()->route("admin.articles.index");
     }
 
 
