@@ -10,8 +10,12 @@
                         <div class="card-body">
                             {{ $article->description }}
                             {{ $article->conclusion }}
+                        </div>
+                        <div class="card-footer">
+                            {{ $article->type ? $article->type->name : 'No Type' }}
 
                         </div>
+
                     </div>
                 </div>
             @endforeach
