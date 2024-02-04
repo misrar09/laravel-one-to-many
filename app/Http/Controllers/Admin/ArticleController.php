@@ -57,22 +57,31 @@ class ArticleController extends Controller
      */
     public function edit(Article $article)
     {
-        //
+
+        return view('admin.articles.edit', ['editData' => $article]);
     }
+
 
     /**
      * Update the specified resource in storage.
      */
     public function update(UpdateArticleRequest $request, Article $article)
     {
-        //
+        $newarticleData = $request->validated();
+
+        $article->update($newarticleData);
+
+        return redirect()->route('admin.articles.show', $article->id);
     }
+
 
     /**
      * Remove the specified resource from storage.
      */
     public function destroy(Article $article)
     {
-        //
+        $article->delete();
+
+        return redirect()->route('admin.articles.index');
     }
 }

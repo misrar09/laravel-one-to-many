@@ -36,7 +36,8 @@ Route::middleware(['auth'])
 
         Route::resource('articles', ArticleController::class);
 
-        Route::resource('types', TypeController::class);
+
+        Route::resource('types', \App\Http\Controllers\Admin\TypeController::class);
     });
 
 

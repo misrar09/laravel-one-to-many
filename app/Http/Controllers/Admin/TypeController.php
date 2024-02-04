@@ -1,6 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin; // era "App\Http\Controllers"
+use App\Http\Controllers\Controller; // Controller di base da importare
+
 
 use App\Models\Type;
 use Illuminate\Http\Request;
@@ -15,7 +17,7 @@ class TypeController extends Controller
 
         $types = Type::all();
 
-        return view("admin.type.index", compact('types'));
+        return view("admin.types.index", compact('types'));
     }
 
     /**
